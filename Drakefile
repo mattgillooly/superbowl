@@ -1,0 +1,15 @@
+;
+; Compute probabilities of winning Super Bowl squares pool
+;
+
+historic_box_scores_html/ <- [-timecheck]
+  mkdir -p $OUTPUT
+  cd $OUTPUT
+  wget http://www.printyourbrackets.com/best-super-bowl-squares-odds-probabilities.html
+  wget http://www.printyourbrackets.com/box-scores-for-super-bowl-1-through-10.html
+  wget http://www.printyourbrackets.com/box-scores-for-super-bowl-11-through-20.html
+  wget http://www.printyourbrackets.com/box-scores-for-super-bowl-21-through-30.html
+  wget http://www.printyourbrackets.com/box-scores-for-super-bowl-31-through-40.html
+
+historic_box_scores <- historic_box_scores_html/
+  find $INPUTS -type f -print0 | parallel -0 ruby parse_box_scores.rb > $OUTPUT

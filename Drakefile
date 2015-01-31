@@ -15,3 +15,11 @@ historic_box_scores_html/ <- [-timecheck]
 
 historic_box_scores <- historic_box_scores_html/
   find $INPUTS -type f -print0 | parallel -0 ruby parse_box_scores.rb > $OUTPUT
+
+
+;
+; squares.tsv is a tab-delimited file that you must supply, containing the
+; names of the people who have purchased each square.
+;
+squares.html <- !squares.tsv, historic_box_scores
+  ruby build_squares_html.rb --squares=$INPUT0 --box-scores=$INPUT1 > $OUTPUT

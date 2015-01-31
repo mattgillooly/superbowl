@@ -18,7 +18,7 @@
         <th>9</th>
       </tr>
 
-      <% squares.each_with_index do |row, row_index| %>
+      <% SQUARES.each_with_index do |row, row_index| %>
         <tr>
           <th><%= row_index %></th>
           <% row.each_with_index do |owner, col_index| %>
@@ -32,6 +32,24 @@
     </table>
 
     <p>Odds based on <a href="http://www.printyourbrackets.com/best-super-bowl-squares-odds-probabilities.html">past Super Bowl results</a>.</p>
+
+    <table border=1 cellpadding="5">
+      <tr>
+        <th>Contestant</th>
+        <th>Expected Payout</th>
+        <th># Squares</th>
+        <th>Expected ROI</th>
+        <th>Actual Payout</th>
+      </tr>
+      <% contestants.each do |contestant| %>
+        <tr>
+          <th><%= contestant.name %></th>
+          <td><%= '$%.2f' % contestant.expected_payout %></td>
+          <td><%= contestant.num_squares %></td>
+          <td><%= '%.2f%' % contestant.expected_roi %></td>
+        </tr>
+      <% end %>
+    </table>
 
   </body>
 </html>

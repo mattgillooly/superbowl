@@ -14,7 +14,7 @@ historic_box_scores_html/ <- [-timecheck]
   wget http://www.printyourbrackets.com/box-scores-for-super-bowl-31-through-40.html
 
 historic_box_scores <- historic_box_scores_html/
-  find $INPUTS -type f -print0 | parallel -0 ruby parse_box_scores.rb > $OUTPUT
+  find $INPUTS -type f -print0 | parallel -0 bundle exec ruby ./bin/parse_box_scores.rb > $OUTPUT
 
 
 ;
@@ -22,4 +22,4 @@ historic_box_scores <- historic_box_scores_html/
 ; names of the people who have purchased each square.
 ;
 squares.html <- !squares.tsv, historic_box_scores
-  ruby build_squares_html.rb --squares=$INPUT0 --box-scores=$INPUT1 > $OUTPUT
+  bundle exec ruby ./bin/build_squares_html.rb --squares=$INPUT0 --box-scores=$INPUT1 > $OUTPUT

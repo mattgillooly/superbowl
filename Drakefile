@@ -2,6 +2,8 @@
 ; Compute probabilities of winning Super Bowl squares pool
 ;
 
+BASE=data/
+
 historic_box_scores_html/ <- [-timecheck]
   mkdir -p $OUTPUT
   cd $OUTPUT

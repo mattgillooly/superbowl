@@ -1,7 +1,8 @@
 require 'csv'
 
 module Superbowl
-
+  # Stores historic score information for the end of each quarter for every
+  # Superbowl in history.
   class BoxScoreHistory
     def self.parse(filename)
       new(CSV.open(filename, headers: %w(quarter x y)).to_a)
@@ -24,7 +25,7 @@ module Superbowl
     end
 
     def probability(row_index, col_index)
-      "%.2f%" % (ratio(row_index, col_index) * 100)
+      format('%.df%', ratio(row_index, col_index) * 100)
     end
 
     def grid_color(row_index, col_index)
@@ -32,5 +33,4 @@ module Superbowl
       hex_val.to_s(16) * 6
     end
   end
-
 end

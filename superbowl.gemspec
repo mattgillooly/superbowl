@@ -4,21 +4,22 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'superbowl/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "superbowl"
+  spec.name          = 'superbowl'
   spec.version       = Superbowl::VERSION
-  spec.authors       = ["Matt Gillooly"]
-  spec.email         = ["matt@swipely.com"]
-  spec.summary       = %q{Use the magic of data to predict how much money you're going to win in your Super Bowl squares pool.}
-  spec.homepage      = "http://github.com/mattgillooly/superbowl"
-  spec.license       = "MIT"
+  spec.authors       = ['Matt Gillooly']
+  spec.email         = ['matt@swipely.com']
+  spec.summary       = 'Use data to predict your Super Bowl pool outcome.'
+  spec.homepage      = 'http://github.com/mattgillooly/superbowl'
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  spec.executables   = spec.files.grep(/^bin\//) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(/^(test|spec|features)\//)
+  spec.require_paths = ['lib']
 
-  spec.add_development_dependency "bundler", "~> 1.7"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency 'bundler', '~> 1.7'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rubocop'
 
   spec.add_dependency 'nokogiri'
 end

@@ -1,5 +1,8 @@
 # Superbowl Box Scores
 
+[![Gem Version](https://badge.fury.io/rb/superbowl.svg)](http://badge.fury.io/rb/superbowl)
+[![Code Climate](https://codeclimate.com/github/mattgillooly/superbowl/badges/gpa.svg)](https://codeclimate.com/github/mattgillooly/superbowl)
+
 Use the magic of data to predict how much money you're going to win in your Super Bowl squares pool.
 
 ## Installation
